@@ -1,0 +1,38 @@
+p {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+aside {
+    position: relative;
+    float: left;
+    background: #3a3434;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid;
+}
+
+h2 {
+    float: left;
+}
+
+h4 {
+    float: left;
+    margin-top: 15px;
+
+}
+
+ul {
+    list-style: none;
+    margin-top: 100px;
+}
+
+button {
+    position: absolute;
+    bottom: 10px;
+    width: 70%;
+}

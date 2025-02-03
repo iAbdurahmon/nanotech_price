@@ -1,0 +1,65 @@
+{% extends 'products/index.html' %}
+
+{% block title %}
+    {% if category %}
+        {{ category.name }}
+    {% else %}
+        Search results...
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="price-list">
+    {% if category %}
+        <h2 class="header-products">Products in <b>{{ category.name }}</b></h2>
+    {% endif %} 
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success fade-out" id="success-message">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.custom_id }}</td> <!-- Номер продукта -->
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }} USD</td>
+                    <td>{{ product.description }}</td>
+                    {% if user.is_authenticated %}
+                        <td><a href="{% url 'product_update' category.id product.custom_id %}" class="btn btn-warning" id="btn-edit-delete">Edit</a></td>
+                        <td><a href="{% url 'product_delete' category.id product.custom_id %}" class="btn btn-danger" id="btn-edit-delete">Delete</a></td>
+                    {% endif %}
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No products available in this category.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if category %}
+        {% if user.is_authenticated %}
+            <div class="add-product-button-block">
+                <a href="{% url 'create_product' category.id %}" class="btn btn-primary btn-lg btn-block">＋ Add New Product</a>
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+        
+{% endblock %}

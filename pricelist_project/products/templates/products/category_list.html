@@ -1,0 +1,33 @@
+{% extends 'products/index.html' %}
+{% load static %} 
+
+{% block title %}Nanotech - Categories{% endblock %}
+
+{% block content %}
+    <h2>Categories</h2>
+    <div class="container">
+            {% for category in categories %}
+                <div class="card">
+                    <a href="{% url 'product_list' category.id %}">
+                        {% if category.image %}
+                            <img src="{{ category.image.url }}" alt="{{ category.name }}" width="200">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                        <!-- <a href="{% url 'product_list' category.id %}">{{ category.name }}</a> -->
+                        <div class="card-text">
+                            <h3>{{ category.name }}</h3>
+                        </div>
+                    </a>
+                </div>
+                    
+            {% endfor %}
+            
+        </ul>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="add-category-button-block">
+            <a href="{% url 'create_category' %}" class="btn btn-primary btn-lg btn-block">＋ Add New Category</a>
+        </div>
+    {% endif %}
+{% endblock %}

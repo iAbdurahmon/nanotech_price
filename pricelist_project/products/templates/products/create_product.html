@@ -1,0 +1,25 @@
+{% extends 'products/index.html' %}
+{% load static %} 
+
+{% block title %}Add New Product{% endblock %}
+
+{% block content %}
+    <div class="form-new-product-div">
+        <h2 class="header-add-products">Add products to <b>{{ category.name }}</b></h2>
+        <form method="post" class="form-new-product" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.name }} <br>
+            {{ form.price }} <br>
+            {{ form.description }} <br>
+            <span>{{error}}</span>
+            <button class="btn btn-success" type="submit" id="add-product">＋ Add Product</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success fade-out" id="success-message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

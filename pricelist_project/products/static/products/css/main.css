@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: rgb(36, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 20;
+}
+
+h2 {
+    margin-top: 4px;
+    color: #fff;
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo {
+    margin-top: 4px;
+    color: #fff;
+    margin-left: 20px;
+}
+
+#login-button {
+    position: absolute;
+    right: 10px;
+}
+
+#logout-button {
+    position: absolute;
+    right: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4);
+    gap: 20px;
+}
+
+.card {
+    text-align: center; /* Центрируем текст внутри карточки */
+    border: 1px solid #ccc; /* Рамка для карточки */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Фон карточки */
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%; /* Изображение занимает ширину карточки */
+    height: auto;
+    border-radius: 8px;
+}
+
+.card a {
+    display: block; /* Ссылка будет занимать всю карточку */
+    color: inherit; /* Наследуем цвет от родителя */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.card a:hover {
+    color: #007bff; /* Цвет при наведении */
+}
+
+.card:hover {
+    background-color: #e0e0e0; /* Изменяем фон при наведении */
+}
+
+.card .card-text {
+    margin-top: 10px;
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 20px;
+    font-size: 25px;
+    /* background-color: red; */
+}
+
+table {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    border: solid;
+}
+
+thead {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; /* Подсветка строки */
+}
+
+.price-list {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.header-products {
+    color: black;
+    margin-top: 10px;
+}
+
+.search-place {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding-right: 200px;
+    
+}
+
+
+.search-place input {
+    width: 300px; /* Ширина поля поиска */
+    margin-right: 10px; /* Отступ между input и button */
+}
+
+.login-form {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.form-group-username {
+    margin-bottom: 20px;
+}
+
+.form-group-password {
+    margin-bottom: 10px;
+}
+
+.add-category-button-block {
+    width: 100%;
+    text-align: center;
+}
+
+.add-product-button-block {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-block{
+    width: 70%;
+    margin-top: 30px;
+}
+
+.form-new-category-div{
+    width: 100%;
+    justify-items: center;
+}
+
+.form-new-product-div{
+    width: 100%;
+    justify-items: center;
+}
+
+.form-new-category {
+    margin-top: 4em;
+    width: 50%;
+}
+
+.form-new-product {
+    margin-top: 4em;
+    width: 50%;
+}
+
+#add-category{
+    margin-top: 3em;
+}
+
+#add-product{
+    margin-top: 3em;
+}
+
+.form-control{
+    border: solid;
+}
+
+.header-add-products{
+    color: black;
+    margin-top: 10px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Элементы располагаются в колонку */
+        align-items: center;
+        padding: 1px; /* Уменьшаем общий отступ */
+        width: 100%; /* Занимает всю ширину экрана */
+        box-sizing: border-box;
+    }
+
+    .search-place {
+        width: 90%; /* Форма поиска занимает 90% ширины */
+        margin: 10px auto; /* Центрируем форму */
+        padding: 0; /* Убираем лишние отступы */
+    }
+
+    .search-place input {
+        width: 100%; /* Поле ввода занимает всю ширину формы */
+    }
+
+    .btn {
+        margin-top: 7px; /* Отступ сверху */
+        width: auto; /* Убираем фиксированную ширину */
+        scale: 0.9;
+        align-self: center; /* Кнопка центрируется */
+    }
+
+    .logo {
+        align-self: flex-start; /* Лого остается слева */
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-place {
+        flex-direction: column; /* Поле и кнопка располагаются вертикально */
+        align-items: stretch; /* Растягиваются на ширину контейнера */
+    }
+
+    .search-place input {
+        margin-bottom: 5px; /* Отступ между полем и кнопкой */
+    }
+
+    .logo {
+        margin-top: 12px;
+    }
+}

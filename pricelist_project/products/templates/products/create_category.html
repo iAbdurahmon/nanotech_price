@@ -1,0 +1,16 @@
+{% extends 'products/index.html' %}
+{% load static %} 
+
+{% block title %}Create New Category{% endblock %}
+
+{% block content %}
+    <div class="form-new-category-div">
+        <form method="post" class="form-new-category" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.name }} <br>
+            {{ form.image }} <br>
+            <span>{{error}}</span>
+            <button class="btn btn-success" type="submit" id="add-category">Add Category</button>
+        </form>
+    </div>
+{% endblock %}

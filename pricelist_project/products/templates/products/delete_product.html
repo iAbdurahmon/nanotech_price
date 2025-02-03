@@ -1,0 +1,21 @@
+{% extends 'products/index.html' %}
+{% load static %} 
+
+{% block title %}Delete Product{% endblock %}
+
+{% block content %}
+    <div class="form-new-product-div">
+        <h2 class="header-add-products">Delete <b>{{ product.name }}</b></b></h2>
+        <form method="post" class="form-new-product" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit" id="delete-product">Delete Product</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success fade-out" id="success-message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
