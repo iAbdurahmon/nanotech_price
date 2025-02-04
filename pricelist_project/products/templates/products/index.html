@@ -51,34 +51,5 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ timestamp }}">
     <script src="{% static 'js/app.js' %}?v={{ timestamp }}"></script> 
     <script src="https://telegram.org/js/telegram-web-app.js"></script> 
-    <script>
-        const tg = window.Telegram.WebApp;
-        
-        // Задайте URL главной страницы вашего приложения
-        const mainPageURL = "https://nanotech-price.asia/home";  // замените на ваш URL
-      
-        // Если текущая страница не является главной, показываем кнопку "Назад"
-        if (window.location.href !== mainPageURL) {
-          tg.BackButton.show();
-          
-          tg.BackButton.onClick(() => {
-            // Вариант 1: Перенаправление пользователя на главную страницу
-            window.location.href = mainPageURL;
-            
-            // Альтернативный вариант (если история браузера корректна):
-            // window.history.back();
-          });
-        } else {
-          // На главной странице скрываем кнопку "Назад"
-          tg.BackButton.hide();
-        }
-        window.addEventListener('load', () => {
-      // При загрузке приложения сразу показываем главную страницу
-      loadMainPage();
-
-      // При необходимости расширяем окно приложения
-      tg.expand();
-    });
-      </script>
 </body>
 </html>
