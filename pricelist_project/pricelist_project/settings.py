@@ -28,8 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = ["nanotech-price.asia", "www.nanotech-price.asia"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://nanotech-price.asia', 'http://nanotech-price.asia']
+CSRF_COOKIE_SECURE = False  # Если используете HTTPS
+SESSION_COOKIE_SECURE = False  # Если используете HTTPS
+SESSION_COOKIE_SAMESITE = 'Lax'  # Рекомендуется для CSRF
+CSRF_COOKIE_SAMESITE = 'Lax'  # Убедитесь, что это значение не "None"
+
 
 
 
