@@ -47,9 +47,26 @@
             }
         });
     </script>
-    
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ timestamp }}">
     <script src="{% static 'js/app.js' %}?v={{ timestamp }}"></script> 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>   
+    <script src="https://telegram.org/js/telegram-web-app.js"></script> 
+    <script>
+        // Инициализация Telegram Web App
+        const tg = window.Telegram.WebApp;
+        
+        // Отображаем кнопку "Назад"
+        tg.BackButton.show();
+        
+        // Назначаем обработчик нажатия кнопки "Назад"
+        tg.BackButton.onClick(() => {
+          // Здесь можно реализовать переход к главному меню или выполнить другую логику
+          // Например, переадресуем пользователя на главную страницу вашего сайта:
+          window.location.href = "https://yourwebsite.com/main";
+          
+          // Либо, если у вас реализована навигация внутри приложения, вызовите соответствующую функцию:
+          // goToMainMenu();
+        });
+      </script>  
 </body>
 </html>
