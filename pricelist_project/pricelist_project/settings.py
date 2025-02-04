@@ -29,6 +29,11 @@ ALLOWED_HOSTS = [
     'nanotech.ton'
 ]
 
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+
+CSRF_TRUSTED_ORIGINS = ['https://nanotech.ton', 'http://nanotech.ton']
+
 
 # Application definition
 
