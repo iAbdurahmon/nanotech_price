@@ -135,3 +135,10 @@ class Search(ListView):
         context = super().get_context_data(**kwargs)
         context['q'] = self.request.GET.get('q')
         return context
+
+
+from django.http import JsonResponse
+
+def debug_headers(request):
+    return JsonResponse(dict(request.META))
+

@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True ###
 
 CSRF_TRUSTED_ORIGINS = ['https://nanotech-price.asia', 'http://nanotech-price.asia']
 CSRF_COOKIE_SECURE = False  # Если используете HTTPS
@@ -40,6 +41,7 @@ CSRF_COOKIE_SAMESITE = 'Lax'  # Убедитесь, что это значени
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders', ###
     'products',
     'members',
     'django.contrib.admin',
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', ###
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -177,3 +180,20 @@ LOGGING = {
         },
     },
 }
+
+###
+CORS_ALLOW_ALL_ORIGINS = False  # Не разрешать всем
+CORS_ALLOWED_ORIGINS = [
+    "https://nanotech.ton",
+    "http://nanotech.ton",
+    "https://nanotech-price.asia",
+    "http://nanotech-price.asia"
+]
+CORS_ALLOW_CREDENTIALS = True  # Разрешить передачу cookies и авторизации
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+    "x-csrftoken",
+    "x-requested-with",
+]
+###
