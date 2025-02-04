@@ -182,7 +182,7 @@ LOGGING = {
 }
 
 ###
-CORS_ALLOW_ALL_ORIGINS = False  # Не разрешать всем
+CORS_ALLOW_ALL_ORIGINS = True  # Не разрешать всем
 CORS_ALLOWED_ORIGINS = [
     "https://nanotech.ton",
     "http://nanotech.ton",
