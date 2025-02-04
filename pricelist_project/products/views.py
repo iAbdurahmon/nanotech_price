@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.urls import reverse
+from django.utils.timezone import now
 from django.views.generic import ListView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.views.generic import UpdateView
@@ -13,7 +14,8 @@ from .forms import CategoryForm, ProductForm
 
 def category_list(request):
     categories = Category.objects.all()  # Получение всех категорий
-    return render(request, 'products/category_list.html', {'categories': categories})
+    time = now().strftime("%Y%m%d%H%M%S")
+    return render(request, 'products/category_list.html', {'categories': categories, 'timestamp': time})
 
 
 def product_list(request, category_id):
