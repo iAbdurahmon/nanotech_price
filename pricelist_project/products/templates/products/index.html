@@ -52,21 +52,33 @@
     <script src="{% static 'js/app.js' %}?v={{ timestamp }}"></script> 
     <script src="https://telegram.org/js/telegram-web-app.js"></script> 
     <script>
-        // Инициализация Telegram Web App
         const tg = window.Telegram.WebApp;
         
-        // Отображаем кнопку "Назад"
-        tg.BackButton.show();
-        
-        // Назначаем обработчик нажатия кнопки "Назад"
-        tg.BackButton.onClick(() => {
-          // Здесь можно реализовать переход к главному меню или выполнить другую логику
-          // Например, переадресуем пользователя на главную страницу вашего сайта:
-          window.location.href = "https://yourwebsite.com/main";
+        // Задайте URL главной страницы вашего приложения
+        const mainPageURL = "https://yourwebsite.com/main";  // замените на ваш URL
+      
+        // Если текущая страница не является главной, показываем кнопку "Назад"
+        if (window.location.href !== mainPageURL) {
+          tg.BackButton.show();
           
-          // Либо, если у вас реализована навигация внутри приложения, вызовите соответствующую функцию:
-          // goToMainMenu();
-        });
-      </script>  
+          tg.BackButton.onClick(() => {
+            // Вариант 1: Перенаправление пользователя на главную страницу
+            window.location.href = mainPageURL;
+            
+            // Альтернативный вариант (если история браузера корректна):
+            // window.history.back();
+          });
+        } else {
+          // На главной странице скрываем кнопку "Назад"
+          tg.BackButton.hide();
+        }
+        window.addEventListener('load', () => {
+      // При загрузке приложения сразу показываем главную страницу
+      loadMainPage();
+
+      // При необходимости расширяем окно приложения
+      tg.expand();
+    });
+      </script>
 </body>
 </html>
