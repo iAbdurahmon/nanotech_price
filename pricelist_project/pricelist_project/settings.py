@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-r7n$bjvgyv85%!$x+o%(0+)qo^19br4bz_xvs(4l)^z6cqd7n#
 DEBUG = True
 
 ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton', "https://nanotech-dton.magic.org"]
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 USE_X_FORWARDED_HOST = True ###
 
 CSRF_TRUSTED_ORIGINS = [
@@ -41,7 +41,7 @@ CSRF_TRUSTED_ORIGINS = [
 CSRF_COOKIE_SECURE = False  # Если используете HTTPS
 SESSION_COOKIE_SECURE = False  # Если используете HTTPS
 SESSION_COOKIE_SAMESITE = 'Lax'  # Рекомендуется для CSRF
-CSRF_COOKIE_SAMESITE = 'Lax'  # Убедитесь, что это значение не "None"
+CSRF_COOKIE_SAMESITE = 'None'  # Убедитесь, что это значение не "None"
 
 
 
