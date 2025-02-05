@@ -29,7 +29,15 @@ ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True ###
 
-CSRF_TRUSTED_ORIGINS = ['https://nanotech-price.asia', 'http://nanotech-price.asia', "https://nanotech-dton.magic.org"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://nanotech.ton",
+    "http://nanotech.ton",
+    "https://nanotech-price.asia",
+    "http://nanotech-price.asia",
+    "https://t.me",
+    "https://web.telegram.org",
+    "https://nanotech-dton.magic.org"
+]
 CSRF_COOKIE_SECURE = False  # Если используете HTTPS
 SESSION_COOKIE_SECURE = False  # Если используете HTTPS
 SESSION_COOKIE_SAMESITE = 'Lax'  # Рекомендуется для CSRF
@@ -187,7 +195,9 @@ CORS_ALLOWED_ORIGINS = [
     "https://nanotech.ton",
     "http://nanotech.ton",
     "https://nanotech-price.asia",
-    "http://nanotech-price.asia"
+    "http://nanotech-price.asia",
+    "https://t.me",
+    "https://web.telegram.org"
 ]
 CORS_ALLOW_CREDENTIALS = True  # Разрешить передачу cookies и авторизации
 CORS_ALLOW_HEADERS = [
