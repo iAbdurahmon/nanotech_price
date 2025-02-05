@@ -140,5 +140,12 @@ class Search(ListView):
 from django.http import JsonResponse
 
 def debug_headers(request):
-    return JsonResponse(dict(request.META))
+    """
+    Возвращает HTTP-заголовки запроса в JSON-формате.
+    """
+    headers = {
+        key: value for key, value in request.META.items() if isinstance(value, (str, int, list, dict))
+    }
+    return JsonResponse(headers, safe=False)
+
 
