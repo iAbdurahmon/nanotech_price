@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -25,9 +24,10 @@ SECRET_KEY = 'django-insecure-r7n$bjvgyv85%!$x+o%(0+)qo^19br4bz_xvs(4l)^z6cqd7n#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton', "https://nanotech-dton.magic.org", "customuz.online", "www.customuz.online"]
+ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton', "https://nanotech-dton.magic.org",
+                 "customuz.online", "www.customuz.online"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
-USE_X_FORWARDED_HOST = True ###
+USE_X_FORWARDED_HOST = True  ###
 
 CSRF_TRUSTED_ORIGINS = [
     "https://nanotech.ton",
@@ -36,20 +36,19 @@ CSRF_TRUSTED_ORIGINS = [
     "http://nanotech-price.asia",
     "https://t.me",
     "https://web.telegram.org",
-    "https://nanotech-dton.magic.org"
+    "https://nanotech-dton.magic.org",
+    "customuz.online",
+    "www.customuz.online"
 ]
 CSRF_COOKIE_SECURE = False  # Если используете HTTPS
 SESSION_COOKIE_SECURE = False  # Если используете HTTPS
 SESSION_COOKIE_SAMESITE = 'Lax'  # Рекомендуется для CSRF
 CSRF_COOKIE_SAMESITE = 'None'  # Убедитесь, что это значение не "None"
 
-
-
-
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders', ###
+    'corsheaders',  ###
     'products',
     'members',
     'django.contrib.admin',
@@ -61,7 +60,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', ###
+    'corsheaders.middleware.CorsMiddleware',  ###
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -91,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pricelist_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -109,10 +107,9 @@ DATABASES = {
         'USER': 'bardo_admin',
         'PASSWORD': '0046',
         'HOST': 'localhost',  # Change if using a remote database
-        'PORT': '5432',       # Default PostgreSQL port
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -132,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -143,7 +139,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -160,7 +155,6 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -197,7 +191,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://nanotech-price.asia",
     "http://nanotech-price.asia",
     "https://t.me",
-    "https://web.telegram.org"
+    "https://web.telegram.org",
+    "customuz.online", "www.customuz.online"
 ]
 CORS_ALLOW_CREDENTIALS = True  # Разрешить передачу cookies и авторизации
 CORS_ALLOW_HEADERS = [
