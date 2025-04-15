@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r7n$bjvgyv85%!$x+o%(0+)qo^19br4bz_xvs(4l)^z6cqd7n#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton', "https://nanotech-dton.magic.org"]
+ALLOWED_HOSTS = ['nanotech-price.asia', 'www.nanotech-price.asia', 'nanotech.ton', "https://nanotech-dton.magic.org", "customuz.online", "www.customuz.online"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 USE_X_FORWARDED_HOST = True ###
 
